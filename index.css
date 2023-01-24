@@ -1,0 +1,48 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  outline: 0px;
+}
+
+.main {
+  height: 100vh;
+}
+
+.logo {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+.slider {
+  height: 100%;
+  width: 400%;
+  overflow-x: scroll;
+  background-image: url("./assets/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.screen1 {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.screen2 {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.screen3 {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.screen4 {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
