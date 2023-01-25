@@ -13,11 +13,56 @@
     </div>
     <div class="main">
       <div class="slider">
-        <div class="screen1"></div>
-        <div class="screen2"></div>
-        <div class="screen3"></div>
-        <div class="screen4"></div>
+        <div class="screen active">Screen1</div>
+        <div class="screen">Screen2</div>
+        <div class="screen">Screen3</div>
+        <div class="screen">Screen4</div>
+        <div class="screen">Screen5</div>
+        <div class="screen">Screen6</div>
+        <div class="screen">Screen7</div>
+        <div class="screen">Screen8</div>
+      </div>
+      <div class="navigator">
+        <button onclick="prevScreen()" class="prev">L</button>
+        <button onclick="nextScreen()" class="next">R</button>
       </div>
     </div>
+    <script>
+      let currentSlide = 1;
+      const allScreens = document.querySelectorAll(".screen");
+      const slider = document.querySelector(".slider");
+
+      function nextScreen() {
+        currentSlide += 1;
+        if (currentSlide > allScreens.length) {
+          currentSlide = 1;
+        }
+        changeScreen(currentSlide);
+      }
+
+      function prevScreen() {
+        currentSlide -= 1;
+        if (currentSlide < 1) {
+          currentSlide = allScreens.length;
+        }
+
+        changeScreen(currentSlide);
+      }
+
+      function changeScreen(n) {
+        for (let i = 1; i <= allScreens.length; ++i) {
+          if (i === n) {
+            allScreens[i - 1].setAttribute("class", "screen active");
+          } else {
+            allScreens[i - 1].setAttribute("class", "screen");
+          }
+        }
+        console.log(slider);
+        slider.setAttribute(
+          "style",
+          `background-position:${12.5 * (n - 1)}% 0%`
+        );
+      }
+    </script>
   </body>
 </html>

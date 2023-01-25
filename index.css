@@ -16,33 +16,35 @@
 
 .slider {
   height: 100%;
-  width: 400%;
-  overflow-x: scroll;
+  width: 100%;
+  overflow: hidden;
   background-image: url("./assets/images/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.screen1 {
-  display: inline-block;
+.screen {
+  display: none;
   height: 100%;
   width: 100%;
 }
 
-.screen2 {
-  display: inline-block;
-  height: 100%;
-  width: 100%;
+.active {
+  display: block;
 }
 
-.screen3 {
-  display: inline-block;
-  height: 100%;
-  width: 100%;
+.prev {
+  position: absolute;
+  z-index: 10;
+  font-size: 25px;
+  top: 40%;
+  left: 10px;
+  font-weight: 700;
 }
-
-.screen4 {
-  display: inline-block;
-  height: 100%;
-  width: 100%;
+.next {
+  right: 10px;
+  position: absolute;
+  font-size: 25px;
+  z-index: 10;
+  top: 40%;
 }
