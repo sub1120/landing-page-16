@@ -1,11 +1,21 @@
+@font-face {
+  font-family: "klavika";
+  src: url("./assets/font/klavika-regular-webfont.woff");
+}
+
 * {
   padding: 0px;
   margin: 0px;
   outline: 0px;
 }
 
+.loader {
+  display: none;
+}
+
 .main {
   height: 100vh;
+  display: block;
 }
 
 .logo {
@@ -14,37 +24,141 @@
   bottom: 20px;
 }
 
+.logo img {
+  width: 70px;
+}
+
 .slider {
+  display: flex;
   height: 100%;
   width: 100%;
   overflow: hidden;
   background-image: url("./assets/images/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  transition: 1s ease-in-out background-position;
+  background-position: 0% 0%;
 }
 
-.screen {
-  display: none;
-  height: 100%;
-  width: 100%;
+.heading {
+  padding: 10px 15px;
 }
 
-.active {
-  display: block;
+.thought {
+  font-size: 30px;
+  color: #ffffff;
+  font-family: "klavika";
+  border-bottom: 1px solid #ffffff;
+}
+
+#s9 {
+  background-position: 88% 0%;
+  padding: 0px;
 }
 
 .prev {
-  position: absolute;
-  z-index: 10;
-  font-size: 25px;
+  border-bottom: 3px solid;
+  border-left: 3px solid;
+  transform: rotate(45deg);
   top: 40%;
-  left: 10px;
-  font-weight: 700;
+  left: 20px;
 }
+
 .next {
-  right: 10px;
-  position: absolute;
-  font-size: 25px;
-  z-index: 10;
+  border-bottom: 3px solid;
+  border-right: 3px solid;
+  transform: rotate(-45deg);
+  right: 20px;
   top: 40%;
+}
+
+.arrow {
+  position: absolute;
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+  border-color: #c2b5b5;
+  cursor: pointer;
+}
+
+.navigator2 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  border-collapse: collapse;
+}
+
+.box {
+  font-size: 10px;
+  color: #ffffff;
+  border: 1px dotted #ffffff;
+  padding: 1px 6px;
+  cursor: pointer;
+}
+
+.current {
+  background-color: #ffffff;
+  color: #000000;
+  margin: 1px 6px;
+  padding: 1px 6px;
+}
+
+.contacts {
+  height: 100%;
+  width: 80%;
+  position: relative;
+  right: -100%;
+  background-color: #161616;
+  transition: 1s ease-in-out right;
+}
+
+.contact-heading {
+  position: absolute;
+  right: 0px;
+  text-align: right;
+  font-size: 30px;
+  color: #ffffff;
+  font-family: "klavika";
+  border-bottom: 1px solid #ffffff;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.contact-info {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  text-align: end;
+  color: #ffffff;
+  font-family: "klavika";
+  margin-right: 20px;
+}
+
+.contact-info span {
+  padding-left: 10px;
+}
+
+.socials {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  text-align: end;
+  color: #ffffff;
+  font-family: "klavika";
+  margin-right: 20px;
+}
+
+a {
+  color: #ffffff;
+}
+
+@media (min-width: 600px) {
+  .thought {
+    font-size: 40px;
+  }
+
+  .screen {
+    padding: 20px 60px;
+    background-size: 540vw;
+  }
 }

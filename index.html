@@ -8,61 +8,79 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div class="logo">
-      <img src="./assets/images/logo.svg" alt="" srcset="" />
+    <div class="loader">
+      <div class="monk">
+        <img src="./assets/images/monk.png" alt="monk" />
+      </div>
     </div>
     <div class="main">
+      <div class="logo">
+        <img src="./assets/images/logo.svg" alt="media monks logo" />
+      </div>
       <div class="slider">
-        <div class="screen active">Screen1</div>
-        <div class="screen">Screen2</div>
-        <div class="screen">Screen3</div>
-        <div class="screen">Screen4</div>
-        <div class="screen">Screen5</div>
-        <div class="screen">Screen6</div>
-        <div class="screen">Screen7</div>
-        <div class="screen">Screen8</div>
+        <div class="heading">
+          <span class="thought"
+            >WE ARE BREAKING <br />
+            OUR VOW <br />
+            OF SILENCE</span
+          >
+        </div>
+        <div class="contacts">
+          <div>
+            <span class="contact-heading">BECOME A MONK</span>
+          </div>
+          <div>
+            <p class="contact-info">
+              Interested in joining our monastery? <br />
+              Check out our current openings on
+              <a href="#">mediamonks.com/carrer</a> <br />
+              <span
+                ><img
+                  width="15px"
+                  src="./assets/images/envelope.svg"
+                  alt="envelope"
+                />
+                Mail on</span
+              >
+              <span
+                ><img
+                  width="13px"
+                  src="./assets/images/facebook.png"
+                  alt="facebook"
+                />
+                Facebook</span
+              >
+              <span>
+                <img
+                  width="13px"
+                  src="./assets/images/twitter.svg"
+                  alt="facebook"
+                />
+                Twitter</span
+              >
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="navigator">
-        <button onclick="prevScreen()" class="prev">L</button>
-        <button onclick="nextScreen()" class="next">R</button>
+      <div class="navigator1">
+        <div onclick="prevScreen()" class="arrow prev"></div>
+        <div onclick="nextScreen()" class="arrow next"></div>
       </div>
+      <table class="navigator2">
+        <tr>
+          <td class="box current" onclick="changeScreen(0)"></td>
+          <td class="box" onclick="changeScreen(1)">1</td>
+          <td class="box" onclick="changeScreen(2)">2</td>
+          <td class="box" onclick="changeScreen(3)">3</td>
+          <td class="box" onclick="changeScreen(4)">4</td>
+          <td class="box" onclick="changeScreen(5)">5</td>
+          <td class="box" onclick="changeScreen(6)">6</td>
+          <td class="box" onclick="changeScreen(7)">7</td>
+          <td class="box" onclick="changeScreen(8)">8</td>
+          <td class="box" onclick="changeScreen(9)"></td>
+        </tr>
+      </table>
     </div>
-    <script>
-      let currentSlide = 1;
-      const allScreens = document.querySelectorAll(".screen");
-      const slider = document.querySelector(".slider");
-
-      function nextScreen() {
-        currentSlide += 1;
-        if (currentSlide > allScreens.length) {
-          currentSlide = 1;
-        }
-        changeScreen(currentSlide);
-      }
-
-      function prevScreen() {
-        currentSlide -= 1;
-        if (currentSlide < 1) {
-          currentSlide = allScreens.length;
-        }
-
-        changeScreen(currentSlide);
-      }
-
-      function changeScreen(n) {
-        for (let i = 1; i <= allScreens.length; ++i) {
-          if (i === n) {
-            allScreens[i - 1].setAttribute("class", "screen active");
-          } else {
-            allScreens[i - 1].setAttribute("class", "screen");
-          }
-        }
-        console.log(slider);
-        slider.setAttribute(
-          "style",
-          `background-position:${12.5 * (n - 1)}% 0%`
-        );
-      }
-    </script>
+    <script src="./script.js"></script>
   </body>
 </html>
