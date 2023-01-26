@@ -9,21 +9,16 @@
   outline: 0px;
 }
 
-.loader {
-  display: none;
-}
-
 .main {
   position: relative;
   height: 100vh;
-  display: block;
   overflow: hidden;
 }
 
 .logo {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  bottom: 0px;
 }
 
 .logo img {
@@ -38,13 +33,14 @@
   background-image: url("./assets/images/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  transition: 1s ease-in-out background-position;
+  transition: 0.5s ease-in-out background-position;
   background-position: 0% 0%;
-  padding: 0px 30px 0px 30px;
 }
 
 .heading {
-  padding: 10px 15px;
+  padding: 10px 50px;
+  transition: 0.5s ease-in-out opacity;
+  opacity: 1;
 }
 
 .thought {
@@ -52,11 +48,6 @@
   color: #ffffff;
   font-family: "klavika";
   border-bottom: 1px solid #ffffff;
-}
-
-#s9 {
-  background-position: 88% 0%;
-  padding: 0px;
 }
 
 .prev {
@@ -97,6 +88,22 @@
   border: 1px dotted #ffffff;
   padding: 1px 6px;
   cursor: pointer;
+}
+
+.nav-text {
+  padding-left: 5px;
+  color: #ffffff;
+  font-family: "klavika";
+  font-size: 10px;
+}
+
+.story {
+  color: #ffffff;
+  font-family: "klavika";
+  font-size: 10px;
+  position: absolute;
+  left: 20px;
+  bottom: 70px;
 }
 
 .current {

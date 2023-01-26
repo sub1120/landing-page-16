@@ -1,8 +1,11 @@
 let currentSlide = 0;
 const slider = document.querySelector(".slider");
 const thought = document.querySelector(".thought");
+const heading = document.querySelector(".heading");
 const allBox = document.querySelectorAll(".box");
+const navText = document.querySelector(".nav-text");
 const contacts = document.querySelector(".contacts");
+const story = document.querySelector(".story");
 
 const content = [
   {
@@ -79,11 +82,14 @@ const content = [
 ];
 
 function nextScreen() {
+  heading.style.opacity = 0;
+
   currentSlide += 1;
   if (currentSlide > 9) {
-    currentSlide = 1;
+    currentSlide = 0;
   }
-  changeScreen(currentSlide);
+
+  setTimeout(() => setScreen(currentSlide), 1000);
 }
 
 function prevScreen() {
@@ -92,15 +98,22 @@ function prevScreen() {
     currentSlide = 9;
   }
 
-  changeScreen(currentSlide);
+  setScreen(currentSlide);
 }
 
-function changeScreen(n) {
+function setScreen(n) {
   slider.style.backgroundPosition = content[n].backgroundPosition;
   slider.style.alignItems = content[n].alignItems;
   slider.style.justifyContent = content[n].justifyContent;
   slider.style.textAlign = content[n].textAlign;
   thought.innerHTML = content[n].heading;
+  heading.style.opacity = 1;
+
+  n !== 0 && n !== 9
+    ? (navText.innerText = `Step ${n} out of 8 on the path to digital enlightment`)
+    : (navText.innerText = "");
+
+  n !== 0 ? (story.style.display = "none") : (story.style.display = "block");
 
   allBox.forEach((box, i) => {
     if (i === n) {
@@ -116,3 +129,9 @@ function changeScreen(n) {
     contacts.style.right = "-80%";
   }
 }
+
+function load() {
+  setScreen(0);
+}
+
+load();

@@ -8,22 +8,22 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div class="loader">
-      <div class="monk">
-        <img src="./assets/images/monk.png" alt="monk" />
-      </div>
-    </div>
     <div class="main">
       <div class="logo">
         <img src="./assets/images/logo.svg" alt="media monks logo" />
       </div>
       <div class="slider">
         <div class="heading">
-          <span class="thought"
-            >WE ARE BREAKING <br />
+          <span class="thought">
+            WE ARE BREAKING <br />
             OUR VOW <br />
-            OF SILENCE</span
-          >
+            OF SILENCE
+          </span>
+          <div class="story">
+            In January 2011, after a decade of digital, we opened the doors to
+            our temple. <br />
+            Follow our noble eightfold path to digital enlightment here.
+          </div>
         </div>
         <div class="contacts">
           <div>
@@ -62,22 +62,24 @@
           </div>
         </div>
       </div>
+
       <div class="navigator1">
         <div onclick="prevScreen()" class="arrow prev"></div>
         <div onclick="nextScreen()" class="arrow next"></div>
       </div>
       <table class="navigator2">
         <tr>
-          <td class="box current" onclick="changeScreen(0)"></td>
-          <td class="box" onclick="changeScreen(1)">1</td>
-          <td class="box" onclick="changeScreen(2)">2</td>
-          <td class="box" onclick="changeScreen(3)">3</td>
-          <td class="box" onclick="changeScreen(4)">4</td>
-          <td class="box" onclick="changeScreen(5)">5</td>
-          <td class="box" onclick="changeScreen(6)">6</td>
-          <td class="box" onclick="changeScreen(7)">7</td>
-          <td class="box" onclick="changeScreen(8)">8</td>
-          <td class="box" onclick="changeScreen(9)"></td>
+          <td class="box current" onclick="setScreen(0)"></td>
+          <td class="box" onclick="setScreen(1)">1</td>
+          <td class="box" onclick="setScreen(2)">2</td>
+          <td class="box" onclick="setScreen(3)">3</td>
+          <td class="box" onclick="setScreen(4)">4</td>
+          <td class="box" onclick="setScreen(5)">5</td>
+          <td class="box" onclick="setScreen(6)">6</td>
+          <td class="box" onclick="setScreen(7)">7</td>
+          <td class="box" onclick="setScreen(8)">8</td>
+          <td class="box" onclick="setScreen(9)"></td>
+          <td class="nav-text"></td>
         </tr>
       </table>
     </div>
