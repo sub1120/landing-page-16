@@ -1,13 +1,22 @@
 let currentSlide = 0;
+const totalSlide = 10;
+const timeGap = 500;
+
+// slider elements
 const slider = document.querySelector(".slider");
-const thought = document.querySelector(".thought");
-const heading = document.querySelector(".heading");
-const allBox = document.querySelectorAll(".box");
-const navText = document.querySelector(".nav-text");
-const contacts = document.querySelector(".contacts");
+const content = document.querySelector(".content");
+const quote = document.querySelector(".quote span");
+const joinus = document.querySelector(".joinus");
 const story = document.querySelector(".story");
 
-const content = [
+// nav elements
+const navbar = document.querySelectorAll(".nav-item");
+const navText = document.querySelector(".nav-text");
+const nextButton = document.querySelector(".arrow.next");
+const prevButton = document.querySelector(".arrow.prev");
+
+// content
+const data = [
   {
     heading: "WE ARE BREAKING <br/> OUR VOW <br/> OF SILENCE",
     backgroundPosition: "0% 0%",
@@ -30,7 +39,7 @@ const content = [
     textAlign: "initial",
   },
   {
-    heading: " USE MANY SKILLS <br/> YET WORK ONE",
+    heading: "USE MANY SKILLS <br/> YET WORK ONE",
     backgroundPosition: "33% 0%",
     alignItems: "center",
     justifyContent: "flex-end",
@@ -76,62 +85,78 @@ const content = [
     heading: "",
     backgroundPosition: "77% 0%",
     alignItems: "initial",
-    justifyContent: "flex-end",
+    justifyContent: "initial",
     textAlign: "initial",
   },
 ];
 
-function nextScreen() {
-  heading.style.opacity = 0;
-
-  currentSlide += 1;
-  if (currentSlide > 9) {
-    currentSlide = 0;
-  }
-
-  setTimeout(() => setScreen(currentSlide), 1000);
-}
-
-function prevScreen() {
-  currentSlide -= 1;
-  if (currentSlide < 0) {
-    currentSlide = 9;
-  }
-
-  setScreen(currentSlide);
-}
-
-function setScreen(n) {
-  slider.style.backgroundPosition = content[n].backgroundPosition;
-  slider.style.alignItems = content[n].alignItems;
-  slider.style.justifyContent = content[n].justifyContent;
-  slider.style.textAlign = content[n].textAlign;
-  thought.innerHTML = content[n].heading;
-  heading.style.opacity = 1;
-
-  n !== 0 && n !== 9
-    ? (navText.innerText = `Step ${n} out of 8 on the path to digital enlightment`)
-    : (navText.innerText = "");
-
-  n !== 0 ? (story.style.display = "none") : (story.style.display = "block");
-
-  allBox.forEach((box, i) => {
+/*To handle number navigations*/
+function handleNav(n) {
+  content.style.opacity = 0;
+  navbar.forEach((navItem, i) => {
     if (i === n) {
-      box.setAttribute("class", "box current");
+      navItem.setAttribute("class", "nav-item active");
     } else {
-      box.setAttribute("class", "box");
+      navItem.setAttribute("class", "nav-item");
     }
   });
 
-  if (n === 9) {
-    contacts.style.right = "0%";
-  } else {
-    contacts.style.right = "-80%";
-  }
+  setTimeout(() => setSlide(n), timeGap);
 }
 
-function load() {
-  setScreen(0);
+/*To handle next button*/
+function nextSlide() {
+  content.style.opacity = 0;
+
+  setTimeout(() => {
+    setSlide(Math.abs((currentSlide + 1) % totalSlide));
+    handleNav(currentSlide);
+  }, timeGap);
 }
 
-load();
+/*To handle previous button*/
+function prevSlide() {
+  content.style.opacity = 0;
+
+  setTimeout(() => {
+    setSlide(Math.abs((currentSlide - 1) % totalSlide));
+    handleNav(currentSlide);
+  }, timeGap);
+}
+
+/*To change slide content */
+function setSlide(n) {
+  currentSlide = n;
+
+  //change background
+  slider.style.backgroundPosition = data[currentSlide].backgroundPosition;
+
+  //change quote
+  quote.innerHTML = data[currentSlide].heading;
+
+  //change content layout
+  content.style.alignItems = data[currentSlide].alignItems;
+  content.style.justifyContent = data[currentSlide].justifyContent;
+  content.style.textAlign = data[currentSlide].textAlign;
+  content.style.opacity = 1;
+
+  //if currentSlide is between 0-9
+  currentSlide !== 0 && currentSlide !== 9
+    ? (navText.innerText = `Step ${currentSlide} out of 8 on the path to digital enlightment`)
+    : (navText.innerText = "");
+
+  //if currentSlide is between 1-9
+  currentSlide !== 0
+    ? (story.style.display = "none")
+    : (story.style.display = "block");
+
+  //if currentSlide is excatly 9
+  currentSlide === 9
+    ? (joinus.style.right = "0%") && (nextButton.style.display = "none")
+    : (joinus.style.right = "-80%") && (nextButton.style.display = "block");
+
+  //if currentSlide is excatly 9
+  currentSlide === 0
+    ? (prevButton.style.display = "none")
+    : (prevButton.style.display = "block");
+}

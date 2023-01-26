@@ -9,79 +9,87 @@
   </head>
   <body>
     <div class="main">
-      <div class="logo">
-        <img src="./assets/images/logo.svg" alt="media monks logo" />
-      </div>
       <div class="slider">
-        <div class="heading">
-          <span class="thought">
-            WE ARE BREAKING <br />
-            OUR VOW <br />
-            OF SILENCE
-          </span>
+        <div class="content">
+          <div class="quote">
+            <span>
+              WE ARE BREAKING <br />
+              OUR VOW <br />
+              OF SILENCE
+            </span>
+          </div>
+
           <div class="story">
             In January 2011, after a decade of digital, we opened the doors to
             our temple. <br />
             Follow our noble eightfold path to digital enlightment here.
           </div>
         </div>
-        <div class="contacts">
-          <div>
-            <span class="contact-heading">BECOME A MONK</span>
-          </div>
-          <div>
-            <p class="contact-info">
-              Interested in joining our monastery? <br />
-              Check out our current openings on
-              <a href="#">mediamonks.com/carrer</a> <br />
-              <span
-                ><img
-                  width="15px"
-                  src="./assets/images/envelope.svg"
-                  alt="envelope"
-                />
-                Mail on</span
-              >
-              <span
-                ><img
-                  width="13px"
-                  src="./assets/images/facebook.png"
-                  alt="facebook"
-                />
-                Facebook</span
-              >
-              <span>
-                <img
-                  width="13px"
-                  src="./assets/images/twitter.svg"
-                  alt="facebook"
-                />
-                Twitter</span
-              >
-            </p>
+      </div>
+
+      <div class="joinus">
+        <div class="joinus-heading">
+          <span>BECOME A MONK</span>
+        </div>
+        <div class="contact-info">
+          <p>
+            Interested in joining our monastery? <br />
+            Check out our current openings on
+            <a href="#">mediamonks.com/carrer</a>
+          </p>
+          <div class="social-links">
+            <div>
+              <img
+                width="15px"
+                src="./assets/images/envelope.svg"
+                alt="envelope"
+              />
+              Mail on
+            </div>
+            <div>
+              <img
+                width="13px"
+                src="./assets/images/facebook.png"
+                alt="facebook"
+              />
+              Facebook
+            </div>
+            <div>
+              <img
+                width="13px"
+                src="./assets/images/twitter.svg"
+                alt="twitter"
+              />
+              Twitter
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="navigator1">
-        <div onclick="prevScreen()" class="arrow prev"></div>
-        <div onclick="nextScreen()" class="arrow next"></div>
+      <div class="navigation">
+        <div class="arrow-navigation">
+          <div onclick="prevSlide()" class="arrow prev"></div>
+          <div onclick="nextSlide()" class="arrow next"></div>
+        </div>
+        <table class="number-navigation">
+          <tr>
+            <td class="nav-item active" onclick="handleNav(0)"></td>
+            <td class="nav-item" onclick="handleNav(1)">1</td>
+            <td class="nav-item" onclick="handleNav(2)">2</td>
+            <td class="nav-item" onclick="handleNav(3)">3</td>
+            <td class="nav-item" onclick="handleNav(4)">4</td>
+            <td class="nav-item" onclick="handleNav(5)">5</td>
+            <td class="nav-item" onclick="handleNav(6)">6</td>
+            <td class="nav-item" onclick="handleNav(7)">7</td>
+            <td class="nav-item" onclick="handleNav(8)">8</td>
+            <td class="nav-item" onclick="handleNav(9)"></td>
+            <td class="nav-text"></td>
+          </tr>
+        </table>
       </div>
-      <table class="navigator2">
-        <tr>
-          <td class="box current" onclick="setScreen(0)"></td>
-          <td class="box" onclick="setScreen(1)">1</td>
-          <td class="box" onclick="setScreen(2)">2</td>
-          <td class="box" onclick="setScreen(3)">3</td>
-          <td class="box" onclick="setScreen(4)">4</td>
-          <td class="box" onclick="setScreen(5)">5</td>
-          <td class="box" onclick="setScreen(6)">6</td>
-          <td class="box" onclick="setScreen(7)">7</td>
-          <td class="box" onclick="setScreen(8)">8</td>
-          <td class="box" onclick="setScreen(9)"></td>
-          <td class="nav-text"></td>
-        </tr>
-      </table>
+    </div>
+
+    <div class="logo">
+      <img src="./assets/images/logo.svg" alt="media monks logo" />
     </div>
     <script src="./script.js"></script>
   </body>
